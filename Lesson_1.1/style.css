@@ -71,7 +71,7 @@ nav a:hover {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    margin-top: 100px;
+    margin-top: -12px;
     text-align: right;
 }
 
@@ -235,4 +235,52 @@ nav a:hover {
     width: 100%;
     height: auto;
     display: block;
+}
+.infrastructure-image {
+    position: relative;
+}
+
+.point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.point-line {
+    position: absolute;
+    height: 2px;
+    background-color: black;
+    transform-origin: left center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.infrastructure-list li {
+    position: relative;
+    cursor: pointer;
+    transition: padding-left 0.3s ease;
+}
+
+.infrastructure-list li:hover {
+    padding-left: 20px;
+}
+
+.infrastructure-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 1px;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+.infrastructure-list li:hover::before {
+    width: 15px;
 }
