@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=JetBrains+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER STYLES */
+header {
+    padding: 40px 0 30px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Major Mono Display'/* 'JetBrains Mono'*/, monospace;
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20 px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+#plots {
+    padding: 80px 0;
+}
+
+.plots-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: end;
+    justify-content: center;
+    position: relative;
+}
+
+.plots-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 100px;
+    text-align: right;
+}
+
+.plots-text {
+    text-align: right;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.plots-left img {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+}
+
+.plots-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plots-center img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.plots-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 100px;
+}
+
+.plots-right img {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+}
+
+.view-button {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.view-button:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+/* HOUSES SECTION */
+#houses {
+    padding: 80px 0;
+}
+
+#houses h2 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 60px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.houses-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.house-image img,
+.house-image-large img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.house-center {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.house-text {
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: center;
+}
+/* INFRASTRUCTURE SECTION */
+#infrastructure {
+    padding: 80px 0;
+}
+
+#infrastructure h2 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 60px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.infrastructure-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.infrastructure-list ul {
+    list-style: none;
+}
+
+.infrastructure-list li {
+    font-size: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    letter-spacing: 0.3px;
+}
+
+.infrastructure-list li:last-child {
+    border-bottom: none;
+}
+
+.infrastructure-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
