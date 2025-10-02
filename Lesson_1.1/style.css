@@ -61,7 +61,7 @@ nav a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    align-items: end;
+    align-items: start;
     justify-content: center;
     position: relative;
 }
@@ -82,10 +82,16 @@ nav a:hover {
 }
 
 .plots-left img {
-    width: 70%;
+    width: 50%;
     height: auto;
     object-fit: cover;
 }
+/*.plots-left img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    margin-top: auto;
+}*/
 
 .plots-center {
     display: flex;
@@ -103,12 +109,12 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    margin-bottom: 100px;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .plots-right img {
-    width: 70%;
+    width: 50%;
     height: auto;
     object-fit: cover;
 }
@@ -124,7 +130,7 @@ nav a:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 .view-button:hover {
@@ -196,15 +202,36 @@ nav a:hover {
 .infrastructure-list li {
     font-size: 16px;
     padding: 12px 0;
-    border-bottom: 1px solid #e0e0e0;
     letter-spacing: 0.3px;
 }
 
-.infrastructure-list li:last-child {
-    border-bottom: none;
+.infrastructure-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* CONTACTS SECTION */
+#contacts {
+    padding: 80px 0;
 }
 
-.infrastructure-image img {
+.contacts-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-info {
+    font-size: 1.2rem;
+}
+
+.phone, .email {
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.map img {
     width: 100%;
     height: auto;
     display: block;
