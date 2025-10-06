@@ -138,11 +138,11 @@ nav a:hover {
     transform: translateY(-2px);
 }
 /* HOUSES SECTION */
-#houses {
+/*#houses {
     padding: 80px 0;
 }
-
-#houses h2 {
+*/
+ #houses h2 {
     font-family: 'Major Mono Display', monospace;
     font-size: 60px;
     margin-bottom: 50px;
@@ -150,26 +150,230 @@ nav a:hover {
     letter-spacing: 1.5px;
 }
 
-.houses-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    gap: 30px;
-    align-items: start;
-}
 
-.house-image img,
-.house-image-large img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+ @import url(https://fonts.bunny.net/css?family=jura:300,500);
 
-.house-center {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
+        * {
+            box-sizing: border-box;
+        }
 
+        /*body {
+            background-color: #FFF;
+            color: #0a0a0a;
+            min-height: 100svh;
+            margin: 0;
+            padding: 2rem;
+            font-family: "Jura", sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        h1, h2 {
+            margin: 0;
+            font-weight: 500;
+        }
+        */
+        #houses {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #houses .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+      /*  #houses h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }*/
+
+        .gallery-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .slides {
+            /* prev & next buttons */
+            --nav-btn-size: 40px;
+            --nav-btn-bg: rgb(15, 23, 43);
+            --nav-btn-txt: white;
+
+            /* item markers */
+            --nav-marker-size: 20px;
+            --nav-marker-bg: rgb(15, 23, 43);
+
+            width: auto /*min(calc(100% - 2rem), 900px)*/;
+            margin: 0 auto;
+            padding-block: 2rem;
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: 500px;
+            gap: 0;
+            anchor-name: --gallery;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            overscroll-behaviour-x: contain;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+
+            /* empty pseudo elements to push first and last items to the middle */
+            &::before,
+            &::after {
+                content: '';
+            }
+
+            /**************** MARKERS GROUP *******************/
+            scroll-marker-group: after;
+            &::scroll-marker-group {
+                position: absolute;
+                position-anchor: --gallery;
+                inline-size: min(90cqi, 400px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                justify-self: center;
+                gap: .25rem;
+                padding-block-start: 1rem;
+                top: anchor(bottom);
+                left: calc(anchor(left) - 10%);
+                right: calc(anchor(right) - 10%);
+            }
+
+            /* gallery slide */
+            > div {
+                position: relative;
+                scroll-snap-align: center;
+                scroll-snap-stop: always;
+                container-type: scroll-state;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                /* scroll to this slide on load */
+                &.slide_1 {
+                    scroll-initial-target: nearest;
+                }
+
+                > img {
+                    width: 100%;
+                    height: auto;
+                    max-height: 500px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 20px rgba(0 0 0 / .25);
+                    transition: all 300ms ease-in-out;
+
+                    /* not current slide */
+                    @container not scroll-state(snapped: inline) {
+                        scale: 0.8;
+                        opacity: 0.7;
+                    }
+                }
+
+                /************** MARKERS **************/
+                &::scroll-marker {
+                    content: ' ';
+                    height: var(--nav-marker-size);
+                    aspect-ratio: 1;
+                    background-color: var(--nav-marker-bg);
+                    border-radius: 50%;
+                    transition: 150ms ease-in-out;
+                    scale: .75;
+                    opacity: .25;
+                }
+
+                /* current slide marker */
+                &::scroll-marker:target-current {
+                    opacity: 1;
+                    scale: 1;
+                }
+
+                /* hover and keyboard focus */
+                &::scroll-marker:where(:hover, :focus-visible) {
+                    opacity: 1;
+                }
+
+                /* keyboard focus */
+                &::scroll-marker:focus-visible {
+                    outline: 1px dashed var(--nav-marker-bg);
+                    outline-offset: 4px;
+                }
+            }
+
+            /************* NAV BUTTONS (left and right) ************/
+            &::scroll-button(*) {
+                position: absolute;
+                position-anchor: --gallery;
+                width: var(--nav-btn-size);
+                aspect-ratio: 1/1;
+                font: inherit;
+                background-color: var(--nav-btn-bg);
+                display: grid;
+                place-content: center;
+                color: #FFF;
+                border: none;
+                border-radius: 50%;
+                opacity: 0.7;
+                cursor: pointer;
+                transition: all 150ms ease-in-out;
+                outline: 1px dashed transparent;
+                outline-offset: 0px;
+            }
+
+            /* button - prev */
+            &::scroll-button(inline-start) {
+                content: '❮';
+                left: calc(anchor(left) - var(--nav-btn-size));
+            }
+
+            /* button - next */
+            &::scroll-button(inline-end) {
+                content: '❯';
+                right: calc(anchor(right) - var(--nav-btn-size));
+            }
+
+            /* hover and keyboard focus */
+            &::scroll-button(*):not(:disabled):where(:hover, :focus-visible) {
+                opacity: 1;
+                scale: 1.1;
+            }
+
+            /* keyboard focus */
+            &::scroll-button(*):focus-visible {
+                outline: 1px dashed var(--nav-btn-bg);
+                outline-offset: 4px;
+            }
+
+            /* disabled */
+            &::scroll-button(*):disabled {
+                opacity: .25;
+                cursor: unset;
+            }
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .slides::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Support message
+        .msg-supports {
+            font-size: 0.8rem;
+            @supports selector(::scroll-marker-group) {
+                display: none;
+            }
+        }*/
 .house-text {
     font-size: 16px;
     line-height: 1.7;
