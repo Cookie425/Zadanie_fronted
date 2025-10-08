@@ -124,12 +124,12 @@ nav a:hover {
     background-color: #000000;
     color: #ffffff;
     border: none;
-    padding: 15px 30px;
-    font-size: 20px;
+    padding: 15px 40px;
+    font-size: 16px;
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     margin-top: auto;
 }
 
@@ -148,6 +148,7 @@ nav a:hover {
     margin-bottom: 50px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-align: left; /* Добавлено: выравнивание по левому краю */
 }
 
 
@@ -217,8 +218,8 @@ nav a:hover {
             padding-block: 2rem;
             display: grid;
             grid-auto-flow: column;
-            grid-auto-columns: 500px;
-            gap: 0;
+            grid-auto-columns: calc(100% / 3 - 5px);
+            gap: 1px;
             anchor-name: --gallery;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
@@ -266,13 +267,13 @@ nav a:hover {
                 }
 
                 > img {
-                    width: 100%;
+                    width: 70%;
                     height: auto;
                     max-height: 500px;
-                    object-fit: cover;
+                    object-fit: contain; /* Изменено: cover на contain для полного отображения фото */
                     border-radius: 10px;
                     box-shadow: 0 10px 20px rgba(0 0 0 / .25);
-                    transition: all 300ms ease-in-out;
+                    transition: all 5ms ease-in-out;
 
                     /* not current slide */
                     @container not scroll-state(snapped: inline) {
@@ -376,8 +377,11 @@ nav a:hover {
         }*/
 .house-text {
     font-size: 16px;
-    line-height: 1.7;
-    text-align: center;
+    line-height: 2; /* Изменено: нормальная высота строки для текста */
+    width: 300px; /* Изменено: ширина блока 700px */
+    text-align: center; /* Оставлено: выравнивание по центру */
+    margin: 40px auto; /* Добавлено: центрирование блока */
+    word-wrap: break-word; /* Добавлено: перенос слов */
 }
 /* INFRASTRUCTURE SECTION */
 #infrastructure {
@@ -414,36 +418,6 @@ nav a:hover {
     height: auto;
     display: block;
 }
-/* CONTACTS SECTION */
-#contacts {
-    padding: 80px 0;
-}
-
-.contacts-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.contact-info {
-    font-size: 1.2rem;
-}
-
-.phone, .email {
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-}
-
-.map img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.infrastructure-image {
-    position: relative;
-}
-
 .point {
     position: absolute;
     width: 12px;
@@ -488,3 +462,42 @@ nav a:hover {
 .infrastructure-list li:hover::before {
     width: 15px;
 }
+/* CONTACTS SECTION */
+#contacts {
+    padding: 80px 0;
+}
+#contacts h2 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 60px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.contacts-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-info {
+    font-size: 30px;
+}
+
+.phone, .email {
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.map iframe {
+    width: 70%;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+.infrastructure-image {
+    position: relative;
+}
+
